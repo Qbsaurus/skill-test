@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>Skills Test Assessment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <style type="text/css">
+      #bruh {
+        background-color: lightgray;
+
+      }
+  </style>
+  <script>
+    function myFunction() {
+       let fname = document.getElementById("name").value;
+       let number = document.getElementById("contactnumber").value;
+       let text;
+          if (fname != "" && number !="") { 
+            document.getElementById("fcheck").style.display="block";
+            document.getElementById("ncheck").style.display="block";
+            document.getElementById("ftimes").style.display="none";
+            document.getElementById("ntimes").style.display="none";
+            text = "You have successfully submitted your contact details"; 
+
+        }
+            else if (fname =="" && number !="") {
+              document.getElementById("ftimes").style.display="block";
+              document.getElementById("ntimes").style.display="none"; 
+              document.getElementById("fcheck").style.display="none";
+              document.getElementById("ncheck").style.display="block";
+              text="Error: Please check all the details before submitting."
+            }
+            else if (fname !="" && number =="") {
+              document.getElementById("ftimes").style.display="none";
+              document.getElementById("ntimes").style.display="block"; 
+              document.getElementById("fcheck").style.display="block";
+              document.getElementById("ncheck").style.display="none";
+              text="Error: Please check all the details before submitting."
+            }
+            else {
+              document.getElementById("ftimes").style.display="block";
+              document.getElementById("ntimes").style.display="block";
+              document.getElementById("fcheck").style.display="none";
+              document.getElementById("ncheck").style.display="none";
+
+              text="Error: Please check all the details before submitting."
+            }
+      document.getElementById("Output").innerHTML = text;
+
+    }
+
+
+    function ccolorw() {
+      var y = document.getElementById("cd");
+      y.style.color = "black";
+
+      var f = document.getElementById("n");
+      f.style.color = "black";
+      var f = document.getElementById("cn");
+      f.style.color = "black";
+      var f = document.getElementById("ct");
+      f.style.color = "black";
+      var f = document.getElementById("ln");
+      f.style.color = "black";
+      var f = document.getElementById("dm");
+      f.style.color = "black";
+
+      var y = document.getElementById("bruh");
+      y.style.backgroundColor = "lightgray";
+
+    }
+    function ccolorb() {
+      var y = document.getElementById("cd");
+      y.style.color = "lightgray";
+
+      var f = document.getElementById("n");
+      f.style.color = "lightgray";
+      var f = document.getElementById("cn");
+      f.style.color = "lightgray";
+      var f = document.getElementById("ct");
+      f.style.color = "lightgray";
+      var f = document.getElementById("ln");
+      f.style.color = "lightgray";
+      var f = document.getElementById("dm");
+      f.style.color = "lightgray";
+      
+
+      var y = document.getElementById("bruh");
+      y.style.backgroundColor = "black";
+    }
+
+  </script>
+</head>
+<body>
+  <main class="m-3 p-3 d-flex justify-content-center align-items-center h-100">
+    <div class="container-fluid">
+      <div class="row h-100" >
+        <!-- THE LEFT SECTION -->
+        <div class="col-12 col-sm-12 col-md-6" >
+          <div class="panel bg-light">
+            <div class="panel-body p-3" id="bruh">
+              <form action="#" method="POST">
+                <h3 style="text-align:center;" for="name" id="cd">
+                    Contact Details
+                 </h3>
+                <!-- Name -->
+                <div class="form-group" id="cd">
+                  <p>
+                  <label class="control-label" for="name" id="n" >
+                    Name:
+                    <i id="ftimes" class="fas fa-times-circle" style="display:none"></i>
+                    <i id="fcheck" class="fas fa-check-circle" style="display:none"></i>
+                  </label>
+                  </p>
+                  <input  class="form-control" type="text" id="name" name="name" required/>
+                </div>
+                <!-- Contact Number -->
+                <div class="form-group" id="cd">
+                  <p>
+                  <label class="control-label" for="contactnumber" id="cn">
+                    Contact Number:
+                    <i id="ntimes" class="fas fa-times-circle" style="display:none"></i>
+                    <i id="ncheck" class="fas fa-check-circle" style="display:none"></i>
+                  </label>
+                </p>
+                  <input class="form-control" type="text" id="contactnumber" name="contactnumber" required/>
+                </div>
+                <!-- Choose Theme -->
+                <div class="form-group">
+                  <label class="control-label mr-3" id="ct">
+                    Choose Theme:
+                  </label>
+                  <div class="form-check form-check-inline" onclick="ccolorw()">
+                    <input class="form-check-input" type="radio" name="modeOptions" id="light" value="Light">
+                    <label class="form-check-label" for="light" id="ln">Light Mode</label>
+                  </div>
+
+                  <div class="form-check form-check-inline" onclick="ccolorb()">
+                    <input class="form-check-input" type="radio" name="modeOptions" id="dark" value="Dark">
+                    <label class="form-check-label" for="dark" id="dm">Dark Mode</label>
+                  </div>
+                </div>
+                <!-- Submit Button -->
+                  <button  type="button" class="btn btn-success btn-sm" id="html" onclick="myFunction()" >Submit</button>
+
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- THE RIGHT SECTION -->
+        <div class="col-12 col-sm-12 col-md-6 h-100">
+          <div class="panel bg-dark text-white">
+            <div class="panel-body p-3">
+                <p id="Output"></p>
+                <p id="rnumber"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
